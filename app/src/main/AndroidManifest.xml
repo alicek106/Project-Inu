@@ -28,6 +28,11 @@
             android:name=".FrontActivity"
             android:label="Front Page">
         </activity>
+
+        <activity
+            android:name=".IndexActivity"
+            android:label="Index Page">
+        </activity>
     </application>
 
 </manifest>

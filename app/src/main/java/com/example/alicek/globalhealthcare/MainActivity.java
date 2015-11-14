@@ -80,9 +80,12 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "failed", Toast.LENGTH_SHORT).show();
         }
 
-        else if(result.equals("s")){
+        else{
             Toast.makeText(this, "success", Toast.LENGTH_SHORT).show();
 
+            String[] record = result.split(" ");
+
+            User.setUser(loginInput.getText().toString(), record[0], record[1], record[2]);
 
             if(autoLogin == true){
                 SharedPreferences pref = getSharedPreferences("PrefName", MODE_PRIVATE);
