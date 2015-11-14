@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/frontLayout">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="알람 현황"
+        android:id="@+id/alarmText"
+        android:layout_gravity="center_horizontal"
+        android:textSize="50dp"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:onClick="OnAlarmClicked" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="환자 탐색"
+        android:id="@+id/findText"
+        android:layout_gravity="center_horizontal"
+        android:textSize="50dp"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:onClick="OnFindClicked" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="정보 조회"
+        android:id="@+id/infoText"
+        android:layout_gravity="center_horizontal"
+        android:textSize="50dp"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:onClick="OnInfoClicked" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Logout"
+        android:id="@+id/textView2"
+        android:layout_marginBottom="43dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="39dp"
+        android:onClick="OnLogoutClicked"
+        android:layout_gravity="right" />
+
+</LinearLayout>
