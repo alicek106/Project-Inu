@@ -17,8 +17,8 @@ import android.widget.Toast;
 public class FrontActivity extends AppCompatActivity {
 
     private final int ALARM_ACTIVITY = 100;
-    private final int FIND_ACTIVITY = 100;
-    private final int INFO_ACTIVITY = 100;
+    private final int FIND_ACTIVITY = 101;
+    private final int INFO_ACTIVITY = 102;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +63,7 @@ public class FrontActivity extends AppCompatActivity {
     public void OnAlarmClicked(View view){
         Toast.makeText(getApplicationContext(), "Alarm", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(getApplicationContext(), IndexActivity.class);
+        intent.putExtra("request", ALARM_ACTIVITY);
         startActivityForResult(intent, ALARM_ACTIVITY);
 
     }
@@ -70,13 +71,27 @@ public class FrontActivity extends AppCompatActivity {
     public void OnFindClicked(View view){
         Toast.makeText(getApplicationContext(), "Find", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(getApplicationContext(), IndexActivity.class);
+        intent.putExtra("request", FIND_ACTIVITY);
         startActivityForResult(intent, FIND_ACTIVITY);
     }
 
     public void OnInfoClicked(View view){
         Toast.makeText(getApplicationContext(), "Info", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(getApplicationContext(), IndexActivity.class);
+        intent.putExtra("request", INFO_ACTIVITY);
         startActivityForResult(intent, INFO_ACTIVITY);
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (resultCode) {
+            case 102:
+
+                break;
+
+            default:
+                break;
+        }
+    }
 }
