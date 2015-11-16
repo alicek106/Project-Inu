@@ -87,7 +87,6 @@ public class FrontActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         switch (resultCode) {
             case 102:
-
                 break;
 
             default:

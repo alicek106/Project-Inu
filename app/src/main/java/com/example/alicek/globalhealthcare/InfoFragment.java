@@ -33,7 +33,7 @@ public class InfoFragment extends Fragment implements BeaconConsumer {
     private BeaconManager beaconManager;
     private boolean found;
     private int major;
-    static boolean work = false;
+    static boolean isWorking = false;
     private final Handler mHandler = new Handler() {
 
         @Override
@@ -59,6 +59,7 @@ public class InfoFragment extends Fragment implements BeaconConsumer {
             /*
             btService.enableBluetooth();
             startRangeBeacon();*/
+            //isWworking = false;
             return inflater.inflate(R.layout.fragment_info_blutooth_disable, container, false);
         }
     }
@@ -75,7 +76,7 @@ public class InfoFragment extends Fragment implements BeaconConsumer {
         beaconManager.bind(this);
         handler.sendEmptyMessage(0);
         found = false;
-        work = true;
+        isWorking = true;
     }
 
     public void bind(){
@@ -83,8 +84,11 @@ public class InfoFragment extends Fragment implements BeaconConsumer {
     }
 
     public void unbind(){
-        if(work) {
+        System.out.println("unbind됨. 상태 : " + isWorking);
+        if(isWorking) {
             beaconManager.unbind(this);
+            isWorking = false;
+            System.out.println("unbind 성공");
         }
     }
 
@@ -96,7 +100,8 @@ public class InfoFragment extends Fragment implements BeaconConsumer {
             // region에는 비콘들에 대응하는 Region 객체가 들어온다.
             public void didRangeBeaconsInRegion(Collection<Beacon> beacons, Region region) {
                 for (Beacon beacon : beacons) {
-                    if(Double.parseDouble(String.format("%.3f", beacon.getDistance())) < 0.01 ){
+
+                    if(Double.parseDouble(String.format("%.3f", beacon.getDistance())) < 0.02 ){
                         major = beacon.getId2().toInt();
                         found = true;
                     }
@@ -152,5 +157,11 @@ public class InfoFragment extends Fragment implements BeaconConsumer {
 
     static public boolean isBluetoothEnabled(){
         return btService.isBluetoothEnable();
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        unbind();
     }
 }
