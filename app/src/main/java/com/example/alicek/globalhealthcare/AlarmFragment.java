@@ -35,7 +35,6 @@ public class AlarmFragment extends Fragment {
 
         Button buttonOpenDrawer = (Button) view.findViewById(R.id.test2);
         buttonOpenDrawer.setOnClickListener(new View.OnClickListener() {
-
             public void onClick(View arg0) {
                 drawerLayout.openDrawer(drawerView);
             }
