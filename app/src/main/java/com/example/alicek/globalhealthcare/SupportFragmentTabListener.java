@@ -58,6 +58,7 @@ public class SupportFragmentTabListener<T extends Fragment> implements TabListen
             // If not, instantiate and add it to the activity
             mFragment = Fragment.instantiate(mActivity, mClass.getName(), mfragmentArgs);
             sft.add(mfragmentContainerId, mFragment, mTag);
+            System.out.println("생성됨.");
         } else {
             sft.attach(mFragment);
         }
